@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply antialiased;
+  }
+}
+
+@layer components {
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
+
+@layer utilities {
+  .transition-all {
+    ransition-property: all;
+    transition-tiiming-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+  }
+
+  .transition-transform {
+    transition-property: transform;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+  }
+  .transition-color {
+    transition-property: background-color, border-color, color, color, fill, stroke, opacity, box-shadow, backdrop-filter, transform;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+  }
+}
+
+/* Costom animation */
+@keyframes morph {
+  0% {
+    border-radius: 0%, 40%, 30%, 70%/ 60%, 30%, 70%, 40%;
+  }
+  50% {
+    border-radius: 30%, 60%, 70%, 40%/ 50%, 60%, 30%, 60%;
+  }
+  100% {
+    border-radius: 60%, 40%, 30%, 70%/ 60%, 30%, 70%, 40%;
+  }
+}
+
+@keyframes blink {
+  0% 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.animation-morph {
+  animation: morph 8s ease-in-out infinite;
+}
+.animation-blink {
+  animation: blink 1s ease-end infinite;
+}
+
+/* Add initial opacity and transfrom for fade-in animatin */
+.opacity-0 {
+  opacity: 0;
+}
+.tranlate-y-4 {
+  transform: translateY(1rem);
+}
+
+/* Ensure smooth transition */
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+/* Add transition clases for sections*/
+section {
+  transition-property: opacity, transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 500ms;
+}
